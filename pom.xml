@@ -17,28 +17,17 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <lwjgl.version>3.3.3</lwjgl.version> <!-- Versão mais recente estável -->
-    <joml.version>1.10.5</joml.version>   <!-- Para matemática 3D -->
-
-    <!-- Configuração para Linux (nativo) -->
-    <lwjgl.natives>natives-linux</lwjgl.natives>
+    <lwjgl.version>3.3.1</lwjgl.version>
+    <joml.version>1.10.5</joml.version>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    <!-- LWJGL Core -->
+    <!-- LWJGL -->
     <dependency>
       <groupId>org.lwjgl</groupId>
       <artifactId>lwjgl</artifactId>
       <version>${lwjgl.version}</version>
     </dependency>
-
-    <!-- Módulos necessários do LWJGL -->
     <dependency>
       <groupId>org.lwjgl</groupId>
       <artifactId>lwjgl-glfw</artifactId>
@@ -55,43 +44,40 @@
       <version>${lwjgl.version}</version>
     </dependency>
 
-    <!-- Binários nativos (Linux) -->
+    <!-- LWJGL Natives for Linux -->
     <dependency>
       <groupId>org.lwjgl</groupId>
       <artifactId>lwjgl</artifactId>
       <version>${lwjgl.version}</version>
-      <classifier>${lwjgl.natives}</classifier>
-      <scope>runtime</scope>
+      <classifier>natives-linux</classifier>
     </dependency>
     <dependency>
       <groupId>org.lwjgl</groupId>
       <artifactId>lwjgl-glfw</artifactId>
       <version>${lwjgl.version}</version>
-      <classifier>${lwjgl.natives}</classifier>
-      <scope>runtime</scope>
+      <classifier>natives-linux</classifier>
     </dependency>
     <dependency>
       <groupId>org.lwjgl</groupId>
       <artifactId>lwjgl-opengl</artifactId>
       <version>${lwjgl.version}</version>
-      <classifier>${lwjgl.natives}</classifier>
-      <scope>runtime</scope>
+      <classifier>natives-linux</classifier>
     </dependency>
     <dependency>
       <groupId>org.lwjgl</groupId>
       <artifactId>lwjgl-stb</artifactId>
       <version>${lwjgl.version}</version>
-      <classifier>${lwjgl.natives}</classifier>
-      <scope>runtime</scope>
+      <classifier>natives-linux</classifier>
     </dependency>
 
-    <!-- JOML (Matemática para jogos 3D) -->
+    <!-- JOML for math -->
     <dependency>
       <groupId>org.joml</groupId>
       <artifactId>joml</artifactId>
       <version>${joml.version}</version>
     </dependency>
   </dependencies>
+
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to
