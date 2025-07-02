@@ -44,8 +44,10 @@ public class Game implements Runnable {
 
     private void render() {
         renderer.clear();
+        renderer.getShader().bind(); // Ativa o shader antes de renderizar
         world.render(renderer);
         window.swapBuffers();
+        window.pollEvents(); // Processa eventos da janela
     }
 
     @Override
@@ -88,6 +90,14 @@ public class Game implements Runnable {
             }
 
             if (window.shouldClose()) {
+                running = false;
+            }
+
+            // Pequena pausa para evitar uso excessivo de CPU
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
                 running = false;
             }
         }

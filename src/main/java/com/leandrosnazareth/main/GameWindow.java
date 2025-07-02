@@ -70,6 +70,10 @@ public class GameWindow {
         GLFW.glfwSwapBuffers(windowHandle);
     }
 
+    public void pollEvents() {
+        GLFW.glfwPollEvents();
+    }
+
     public void cleanup() {
         GLFW.glfwDestroyWindow(windowHandle);
         GLFW.glfwTerminate();
