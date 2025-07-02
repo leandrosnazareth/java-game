@@ -90,7 +90,6 @@ public class Texture {
         glGenerateMipmap(GL_TEXTURE_2D);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glBindTexture(GL_TEXTURE_2D, 0);
         return textureId;
     }
 
@@ -100,6 +99,10 @@ public class Texture {
 
     public void unbind() {
         glBindTexture(GL_TEXTURE_2D, 0);
+    }
+
+    public void cleanup() {
+        glDeleteTextures(id);
     }
 
     public int getId() {
@@ -112,9 +115,5 @@ public class Texture {
 
     public int getHeight() {
         return height;
-    }
-
-    public void cleanup() {
-        glDeleteTextures(id);
     }
 }

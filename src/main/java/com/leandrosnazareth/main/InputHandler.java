@@ -40,7 +40,11 @@ public class InputHandler {
     }
 
     public boolean isKeyPressed(int keyCode) {
-        return keyCode >= 0 && keyCode < keys.length && keys[keyCode];
+        boolean pressed = keyCode >= 0 && keyCode < keys.length && keys[keyCode];
+        if (pressed) {
+            System.out.println("Key " + keyCode + " is pressed!");
+        }
+        return pressed;
     }
 
     public Vector2f getMousePos() {

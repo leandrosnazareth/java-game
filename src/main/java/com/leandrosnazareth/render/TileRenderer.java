@@ -36,15 +36,32 @@ public class TileRenderer {
     private Texture texture;
 
     public TileRenderer() throws Exception {
-        // Carrega a textura usando o método para recursos do classpath
-        texture = Texture.loadFromResource("/textures/tiles.png");
+        System.out.println("Creating TileRenderer...");
+
+        // Carrega a textura
+        try {
+            texture = Texture.loadFromResource("/textures/tiles.png");
+            System.out.println("Texture loaded successfully!");
+        } catch (Exception e) {
+            System.err.println("Could not load texture, creating fallback...");
+            // Cria uma textura simples de fallback (32x32 branca)
+            java.nio.ByteBuffer buffer = java.nio.ByteBuffer.allocateDirect(32 * 32 * 4);
+            for (int i = 0; i < 32 * 32; i++) {
+                buffer.put((byte) 255); // R
+                buffer.put((byte) 255); // G
+                buffer.put((byte) 255); // B
+                buffer.put((byte) 255); // A
+            }
+            buffer.flip();
+            texture = new Texture(buffer, 32, 32);
+        }
 
         float[] vertices = {
                 // Position (x, y, z) Texture Coords (x, y)
-                0.5f, 0.5f, 0.0f, 1.0f, 0.0f, // Top right
-                0.5f, -0.5f, 0.0f, 1.0f, 1.0f, // Bottom right
-                -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, // Bottom left
-                -0.5f, 0.5f, 0.0f, 0.0f, 0.0f // Top left
+                32.0f, 32.0f, 0.0f, 1.0f, 0.0f, // Top right
+                32.0f, 0.0f, 0.0f, 1.0f, 1.0f, // Bottom right
+                0.0f, 0.0f, 0.0f, 0.0f, 1.0f, // Bottom left
+                0.0f, 32.0f, 0.0f, 0.0f, 0.0f // Top left
         };
 
         int[] indices = {
