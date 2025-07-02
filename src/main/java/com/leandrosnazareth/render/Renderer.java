@@ -23,6 +23,7 @@ public class Renderer {
 
         projectionMatrix = new Matrix4f().ortho(0.0f, 1280.0f, 720.0f, 0.0f, -1.0f, 1.0f);
         shader.createUniform("projectionMatrix");
+        shader.createUniform("modelMatrix");
         shader.setUniform("projectionMatrix", projectionMatrix);
     }
 

@@ -26,7 +26,6 @@ import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.lwjgl.system.MemoryStack;
 
-import com.leandrosnazareth.util.FileUtils;
 import com.leandrosnazareth.world.BlockType;
 
 public class TileRenderer {
@@ -37,7 +36,8 @@ public class TileRenderer {
     private Texture texture;
 
     public TileRenderer() throws Exception {
-        texture = new Texture(FileUtils.loadResource("/textures/tiles.png"));
+        // Carrega a textura usando o método para recursos do classpath
+        texture = Texture.loadFromResource("/textures/tiles.png");
 
         float[] vertices = {
                 // Position (x, y, z) Texture Coords (x, y)

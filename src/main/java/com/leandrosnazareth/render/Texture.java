@@ -55,6 +55,33 @@ public class Texture {
         this.id = createTexture(buffer);
     }
 
+    // Construtor para carregar recurso do classpath
+    public static Texture loadFromResource(String resourcePath) throws Exception {
+        java.net.URL resourceUrl = Texture.class.getResource(resourcePath);
+        if (resourceUrl == null) {
+            throw new Exception("Resource not found: " + resourcePath);
+        }
+
+        // Converte URL para um caminho que STB pode entender
+        java.nio.file.Path path;
+        try {
+            path = java.nio.file.Paths.get(resourceUrl.toURI());
+            return new Texture(path.toString());
+        } catch (java.net.URISyntaxException e) {
+            // Se estiver dentro de um JAR, extraia o recurso para um arquivo temporário
+            try (java.io.InputStream is = Texture.class.getResourceAsStream(resourcePath)) {
+                if (is == null) {
+                    throw new Exception("Resource not found: " + resourcePath);
+                }
+
+                java.nio.file.Path tempFile = java.nio.file.Files.createTempFile("texture", ".png");
+                java.nio.file.Files.copy(is, tempFile, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                tempFile.toFile().deleteOnExit();
+                return new Texture(tempFile.toString());
+            }
+        }
+    }
+
     private int createTexture(ByteBuffer buf) {
         int textureId = glGenTextures();
         glBindTexture(GL_TEXTURE_2D, textureId);

@@ -16,9 +16,7 @@ public class Game implements Runnable {
 
     public Game() {
         window = new GameWindow("Java Game", 1280, 720);
-        window.init(); // Inicializa a janela primeiro
-
-        input = new InputHandler(window); // Agora a janela já está inicializada
+        // Não inicializa a janela aqui, será feito na thread do jogo
         renderer = new Renderer();
         world = new World();
     }
@@ -29,6 +27,13 @@ public class Game implements Runnable {
     }
 
     private void init() throws IOException {
+        // Inicializa a janela e o contexto OpenGL na thread do jogo
+        window.init();
+        
+        // Cria o input handler após a janela estar inicializada
+        input = new InputHandler(window);
+        
+        // Agora pode inicializar o renderer com o contexto OpenGL ativo
         renderer.init();
         world.init();
     }

@@ -1,0 +1,16 @@
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/render/Texture.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/render/Renderer.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/util/FileUtils.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/world/WorldGenerator.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/main/Game.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/world/World.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/render/ShaderProgram.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/world/BlockType.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/main/GameWindow.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/util/MathUtils.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/world/Block.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/main/Main.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/util/CreateTiles.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/main/InputHandler.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/render/TileRenderer.java
+/home/nazareth/Documentos/Projetos/java-game/src/main/java/com/leandrosnazareth/world/Chunk.java
